@@ -28,7 +28,7 @@ public Matrix {
 					number = number.concat(temp);
 				}
 			else if (temp.equals(",")) {
-				c 		
+				// create code to add previous number to row array		
 			}
 			}
 		}
