@@ -9,16 +9,18 @@ public class Calculator {
 		System.out.print("> ");
 		input = System.console().readLine();
 		int num2 = Integer.parseInt(input);
-		double result;
-		int resultInt;
+		
+		double result = 0;
+		int resultInt = 0;
+		
 		boolean validChoice = false;
 		while(!validChoice) {
 			System.out.println("\nPlease choose option from menu below:");
-			System.out.println("Add: 1");
+			System.out.println("Add:      1");
 			System.out.println("Subtract: 2");
 			System.out.println("Multiply: 3");
-			System.out.println("Divide: 4");
-			System.out.println("Modulus: 5");
+			System.out.println("Divide:   4");
+			System.out.println("Modulus:  5");
 			System.out.print("> ");
 			input = System.console().readLine();
 			int choice = Integer.parseInt(input);
@@ -57,28 +59,29 @@ public class Calculator {
 					break;
 			}
 		}
-		System.out.println("result: " + result + "   boo yaa");
-		
-		//define addition method.
-		private int addition(int num1, int num2) {
+		System.out.println("Result: " + result);
+	
+	}
+	//define addition method.
+		private static int addition(int num1, int num2) {
 			int output = num1 + num2;
 			return output;
 		}
 		
 		//define subtraction method.
-		private int subtraction(int num1, int num2) {
+		private static int subtraction(int num1, int num2) {
 			int output = num1 - num2;
 			return output;
 		}
 		
 		//define multiplication method.
-		private int multiplication(int num1, int num2) {
+		private static int multiplication(int num1, int num2) {
 			int output = num1 * num2;
 			return output;
 		}
 		
 		//define division method.
-		private double division(int num1, int num2) {
+		private static double division(int num1, int num2) {
 			double d1 = (double) num1;
 			double d2 = (double) num2;
 			double output = d1 / d2;
@@ -86,9 +89,8 @@ public class Calculator {
 		}
 		
 		//define modulus method.
-		private int modulus(int num1, int num2) {
+		private static int modulus(int num1, int num2) {
 			int output = num1 % num2;
 			return output;
 		}
-	}
 }
