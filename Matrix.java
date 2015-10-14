@@ -12,12 +12,14 @@ public Matrix {
 			this.array2d[posX][posY] = value;	
 		}
 	}
-	
+	//Method to set entire row, as specified by user.
 	public void setRow(int row, String input) {
 		int rowLength = this.array2d.length;
 		int rowPos = this.array2d[0].length;
+		//Array to hold integers from input.
 		int[] row = new int[rowLength];
-		String number = "";
+		//String to hold only integers from String input.
+		String number = ""; 
 		String temp = "";
 		int count = 0;
 		if(row < rowPos) {
