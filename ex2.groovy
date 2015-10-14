@@ -6,7 +6,7 @@ first[3] = 4;
 first[4] = 5;
 first[5] = 6;
 
-int[] second = new int[6];
+int[] second = new int[9];
 
 ArrayCopier ac1 = new ArrayCopier();
 
