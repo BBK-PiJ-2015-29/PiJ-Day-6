@@ -33,7 +33,18 @@ public class Matrix {
 				temp = input.substring(i, i+1);
 				char c = temp.charAt(0);
 				if(Character.isDigit(c)) {
+					
+					if (i == (input.length() - 1)) {
+						//temp = input.substring(i-1, i);
+						number = number.concat(temp);
+						tempNum = Integer.parseInt(number);
+						rowTemp[count] = tempNum;
+						count++;
+					}
+					else {
 					number = number.concat(temp);
+					}
+					
 				}
 				
 				else if (temp.equals(",")) {
@@ -43,15 +54,8 @@ public class Matrix {
 					count++;
 					number = "";		
 				}
-				else if (i == (input.length() - 1)) {
-					if (Character.isDigit(c)) {
-						number = number.concat(temp);
-						tempNum = Integer.parseInt(number);
-						rowTemp[count] = tempNum;
-						count++;
-					}
-				} 
 			}
 		}
+		this.array2d[row] = rowTemp;
 	}
 }
