@@ -203,7 +203,7 @@ public class Matrix {
 				newMatrix.setElement(i, j, eleInt);
 			}
 		}
-		//print
-		newMatrix.prettyPrint();
+		// set the original matrix to have the value of the new matrix
+		this.array2d = newMatrix.array2d;
 	}
 }
