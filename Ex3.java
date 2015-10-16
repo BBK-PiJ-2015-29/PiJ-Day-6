@@ -3,21 +3,28 @@ public class Ex3 {
 		Matrix m1 = new Matrix(3, 3);
 		
 		System.out.println("We have an integer Matrix of 3 by 3");
-		
-		
-		
+
 		boolean validInput = false;
 		while (!validInput) {
 			System.out.println("What do you want to do with the Matrix");
 			System.out.println("1 - add an element to the matrix?");
 			System.out.println("2 - add an entire row to the matrix?");
+			System.out.println("3 - add an entire column to the matrix?");
+			System.out.println("4 - print the matrix as a single line");
+			System.out.println("5 - print the matrix as a grid");
+			System.out.println("0 - Exit");
 			System.out.print("> ");
 			
 			String input = System.console().readLine();
 			int choice = Integer.parseInt(input);
 			int row = 0;
 			int col = 0;
+			String rowValues = "";
+			String colValues = "";
 			switch (choice) {
+				case 0: 
+					System.exit(0);
+					break;
 				case 1:
 					System.out.println("Which row?");
 					System.out.print("> ");
@@ -35,7 +42,7 @@ public class Ex3 {
 					int value = Integer.parseInt(input);
 					
 					m1.setElement(row, col, value);
-					validInput = true;
+					
 					break;
 				
 				case 2:
@@ -46,23 +53,38 @@ public class Ex3 {
 					
 					System.out.println("Please enter 3 integers, separated by \',\'");
 					System.out.print("> ");
-					String rowValues = System.console().readLine();
+					rowValues = System.console().readLine();
 					
 					m1.setRow(row, rowValues);
-					validInput = true;
-					break;
 					
+					break;
+				
+				case 3: 
+					System.out.println("Which column?");
+					System.out.print("> ");
+					input = System.console().readLine();
+					col = Integer.parseInt(input);
+					
+					System.out.println("Please enter 3 integers, separated by \',\'");
+					System.out.print("> ");
+					colValues = System.console().readLine();
+					
+					m1.setColumn(col, colValues);
+					break;
+				
+				case 4: 
+					System.out.println(m1.toString());
+					break;
+				
+				case 5:
+					m1.prettyPrint();	
+					break;
 				default:
 					System.out.println("Not a valid input");
 					
 			}
 		}
-		for (int i = 0; i < m1.getArray().length; i++) {
-            for (int j = 0; j < m1.getArray()[i].length; j++) {
-            System.out.print(m1.getArray()[i][j] + " ");
-            }
-            System.out.println();
-        }
+
 		
 	}
 }
