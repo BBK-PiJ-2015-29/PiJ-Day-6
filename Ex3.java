@@ -12,6 +12,7 @@ public class Ex3 {
 			System.out.println("3 - add an entire column to the matrix?");
 			System.out.println("4 - print the matrix as a single line");
 			System.out.println("5 - print the matrix as a grid");
+			System.out.println("6 - add an entire matrix from a string");
 			System.out.println("0 - Exit");
 			System.out.print("> ");
 			
@@ -78,6 +79,13 @@ public class Ex3 {
 				
 				case 5:
 					m1.prettyPrint();	
+					break;
+				
+				case 6: 
+					System.out.println("Input matrix, elements separated by \',\'s and\nrows separated by \';\'s");
+					System.out.print("> ");
+					input = System.console().readLine();
+					m1.setMatrix(input);
 					break;
 				default:
 					System.out.println("Not a valid input");

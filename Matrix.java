@@ -150,10 +150,60 @@ public class Matrix {
 	
 	public void prettyPrint() {
 		for (int i = 0; i < this.array2d.length; i++) {
-				for (int j = 0; j < this.array2d[i].length; j++) {
-					System.out.print(this.array2d[i][j] + "\t");
-				}
-				System.out.println();
+			for (int j = 0; j < this.array2d[i].length; j++) {
+				System.out.print(this.array2d[i][j] + "\t");
 			}
+			System.out.println();
+		}
+	}
+	// Exercise 4, extend the class with a method to add an entire matrix
+	
+	public void setMatrix(String input) {
+		//String to hold each character of input
+		String temp = "";
+		// int to hold the element as an int before being added to the matrix
+		int eleInt = 0;
+		// two ints to count the rows as we read the input
+		// the following only works if we assume the rows and columns are of the same length
+		int countRows = 0;
+		int countCols = 0;
+		int countCommas = 0;
+		
+		//for loop to count the number of rows and columns
+		for (int i = 0; i < input.length(); i++) {
+			temp = input.substring(i, i+1);
+			if (temp.equals(";")) {
+				countRows++;
+			}
+			else if (temp.equals(",")) {
+				countCommas ++; 
+			}
+		}
+		
+		// check that last character of input is ; or an element
+		// in the case that it is an element, we add 1 to the row count
+		temp = input.substring(input.length()-1, input.length());
+		if (!(temp.equals(";"))) {
+			countRows = countRows + 1;
+		}
+		// calculate number of columns by dividing number of commas by number of rows
+		countCols = (countCommas / countRows) + 1;
+		
+		//Create a matrix of the correct size to hold our new matrix;
+		Matrix newMatrix = new Matrix(countRows, countCols);
+		
+		//Split the string into rows by splitting every time we have a ;
+		String[] rows = input.split(";");
+		String[] rowElements;
+		//Now we again loop through the input and this time add things to the matrix,
+		for (int i = 0; i < rows.length; i++) {
+			rowElements = rows[i].split(",");
+			for (int j = 0; j < rowElements.length; j++) {
+				eleInt = Integer.parseInt(rowElements[j]);
+				newMatrix.setElement(i, j, eleInt);
+			}
+		}
+		//print
+		newMatrix.prettyPrint();
 	}
 }
