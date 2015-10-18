@@ -16,6 +16,7 @@ public class Ex3 {
 			System.out.println("6 - add an entire matrix from a string");
 			System.out.println("7 - check if an int[] input is symmetrical");
 			System.out.println("8 - check if an int[][] input is symmetrical");
+			System.out.println("9 - check if an int[][] input is triangular");
 			System.out.println("0 - Exit");
 			System.out.print("> ");
 			
@@ -125,7 +126,21 @@ public class Ex3 {
 						System.out.println("The input int[] is not symmetrical\n");
 					}
 					break;
-					
+				
+				case 9:
+					System.out.println("Input int[][], elements separated by \',\'s and\nrows separated by \';\'s");
+					System.out.print("> ");
+					input = System.console().readLine();
+					m1.setMatrix(input);
+					m1.prettyPrint();
+					boolean triangular = check.isTriangular(m1.getArray());
+					if (triangular) {
+						System.out.println("The input int[] is triangular\n");
+					}
+					else {
+						System.out.println("The input int[] is not triangular\n");
+					}
+					break;
 				default:
 					System.out.println("Not a valid input");
 					

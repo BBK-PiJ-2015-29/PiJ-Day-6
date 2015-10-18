@@ -27,4 +27,19 @@ public class MatrixChecker {
 		}
 		return symmetrical;
 	}
+	
+	public boolean isTriangular(int[][] input) {
+		boolean triangular = true;
+		for (int i = 0; i < input.length; i++) {
+			for (int j = 0; j < input[0].length; j++) {
+				if (i < j) {
+					if (input[i][j] != 0) {
+						triangular = false;
+						break;
+					}
+				}
+			}	
+		}
+		return triangular;
+	}
 }
